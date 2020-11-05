@@ -65,4 +65,7 @@ I had a little research into how music would operate and how I could use it with
 
 https://wmich.edu/mus-gened/mus150/Ch1-elements.pdf
 
+A tutorial I looked at for this project was in this youtube video I found it quite helpful.
+[![YouTube](http://img.youtube.com/vi/PzVbaaxgPco/0.jpg)](https://www.youtube.com/watch?v=PzVbaaxgPco&ab_channel=RenaissanceCoders)
+
 
