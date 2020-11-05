@@ -33,22 +33,27 @@ These will populate the terrain along and be influenced by the music also.
 Rhythm is the pattern in music with regard to time, rhythm is normally compared with the beat of the music. I hope to use rhythm to control the speed of the train, the beats per minute (BPM) of music would be a unique attribute to use for speed and I think it would work the best for the control of the speed of the train. Another use for the BPM of the music would be to control the movement of the trees. I feel to have the trees bounce or make some irregular movement would be a nice visual representation of the beat in the music. 
 
 ## Dynamics 
-Dynamics refers to the variation of loudness in music, so how soft or how loud music can be in certain parts of a song. I will use this to change the elevation of the railroad, as the music starts to get louder the railroad will start to elevate slightly and as the music gets quieter the railroad will slope down slightly giving this 3d effect to an audio visualizer.  
+Dynamics refers to the variation of loudness in music, so how soft or how loud music can be in certain parts of a song. I will use this to change the elevation of the railroad, as the music starts to get louder the railroad will start to elevate slightly and as the music gets quieter the railroad will slope down slightly giving this 3d effect to an audio visualizer. 
+
+![VolumeUp](Images/increaseVolume.PNG)
+![VolumeDown](Images/volumeDecrease.PNG)
 
 ## Melody 
 Melody is the combination of pitch and rhythm, the pitch is the highness and the lowness of a note. I hope to use melody to guide the direction of the train. Higher notes on the music scale will make the railroad slightly turn left while lower notes on the scale will make the railroad slightly turn right.
 
+![melodyTrack](Images/melody.PNG)
 
 # Design 
 This is a simple class diagram, I envision 5 main classes in the development of this program. The first class is the world generator, this will handle the creation of the railroad and world for the train to traverse. The audio generator will process the music selected to give calculations to how the world should be created with reference to the music selected. These calculations will then be used to layout the terrain and railroad for the train. There will also be a method to initialize the steam train.
 
+![melodyTrack](Images/UML.PNG)
 
 # Research and Inspirations
 My main inspiration for this project is this video which captures a train going through the snowy mountains of Norway.
 [![YouTube](http://img.youtube.com/vi/ZHgXfhiDIIM/0.jpg)](https://www.youtube.com/watch?v=ZHgXfhiDIIM&ab_channel=RailCowGirl)
 
 
-Another inspiration is an audio visualizer I found that traversed through a sort of natural setting full of beautiful colours.
+Another inspiration is an audio visualizer I found that traversed through anatural setting full of beautiful colours.
 [![YouTube](http://img.youtube.com/vi/pr6uq6F8L58/0.jpg)](https://www.youtube.com/watch?v=pr6uq6F8L58&ab_channel=TrapNation)
 
 
