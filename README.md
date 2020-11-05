@@ -1,6 +1,10 @@
 # GamesEngine1Assignment
 This project is for the Games engine 1 assignment where I will create and audio visualizer using a train traversing nature.
 
+# Details 
+Name: Daniel Simons                    
+Course: DT228                           
+Student-number: C17371946
 
 # Introduction
 This proposal will detail my idea for the games engine 1 assignment. My proposal is to create a procedurally generated railroad in which the setting and railroad alter and transform with synchronized music. The railroad generation and the world that is generated for the train to travel through will be dependent on the different characteristics found in music. Some of these characteristics include; rhythm, the element of time within music and the speed of the beat, dynamics of music such as the loudness or quietness of music (Crescendo and descrescendo), melody,  which is the presentation of pitch or in other words the highness or the lowness of a note or sound and finally harmony the combination of pitches to create chords. 
