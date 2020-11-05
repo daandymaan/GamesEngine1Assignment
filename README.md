@@ -53,7 +53,7 @@ My main inspiration for this project is this video which captures a train going 
 [![YouTube](http://img.youtube.com/vi/ZHgXfhiDIIM/0.jpg)](https://www.youtube.com/watch?v=ZHgXfhiDIIM&ab_channel=RailCowGirl)
 
 
-Another inspiration is an audio visualizer I found that traversed through a sort of natural setting full of beautiful colours.
+Another inspiration is an audio visualizer I found that traversed through anatural setting full of beautiful colours.
 [![YouTube](http://img.youtube.com/vi/pr6uq6F8L58/0.jpg)](https://www.youtube.com/watch?v=pr6uq6F8L58&ab_channel=TrapNation)
 
 
