@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
-public class RailRoadGenerator : MonoBehaviour
+public class RailroadMesh : MonoBehaviour
 {
     Mesh mesh;
     Vector3[] vertices;
@@ -16,6 +16,7 @@ public class RailRoadGenerator : MonoBehaviour
         GetComponent<MeshFilter>().mesh = mesh;
 
         CreateShape();
+        UpdateMesh();
     }
 
     void CreateShape()
@@ -33,7 +34,7 @@ public class RailRoadGenerator : MonoBehaviour
         };
     }
 
-    void updateMesh()
+    void UpdateMesh()
     {
         mesh.Clear();
         mesh.vertices = vertices;
