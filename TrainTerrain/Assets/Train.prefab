@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1184285139171486277}
   - component: {fileID: 1184285139171486276}
   - component: {fileID: 1184285139171486275}
+  - component: {fileID: 5198100599300152142}
   m_Layer: 0
   m_Name: Train
   m_TagString: Untagged
@@ -104,6 +105,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5198100599300152142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184285139171486274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e693169597bc33e4a88fa982a984e6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maintainHeight: 1
+  speed: 10
 --- !u!1 &1184285139382465458
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2902368859192675798}
   m_LocalRotation: {x: -0, y: 0.6931464, z: -0, w: 0.7207969}
-  m_LocalPosition: {x: 0.821, y: -1.461, z: -0.474}
+  m_LocalPosition: {x: 0.819, y: -1.461, z: -0.434}
   m_LocalScale: {x: 0.04988562, y: 1, z: 0.4003672}
   m_Children: []
   m_Father: {fileID: 1184285139171486278}

@@ -12,16 +12,16 @@ public class TerrainTile : MonoBehaviour {
 
     Mesh m;
 
-    private delegate float SampleCell(float x, float y);
+    // private delegate float SampleCell(float x, float y);
 
-    SampleCell[] sampleCell = {
-               new SampleCell(SampleCell1)
-              , new SampleCell(SampleCell2)
-              , new SampleCell(SampleCell3)
-              , new SampleCell(SampleCell4)
-    };
+    // SampleCell[] sampleCell = {
+    //            new SampleCell(SampleCell1)
+    //           , new SampleCell(SampleCell2)
+    //           , new SampleCell(SampleCell3)
+    //           , new SampleCell(SampleCell4)
+    // };
 
-    public int whichSampler = 0;
+    // public int whichSampler = 0;
 
     // Use this for initialization
     void Awake() {
@@ -97,99 +97,27 @@ public class TerrainTile : MonoBehaviour {
         mr.receiveShadows = true;
 	}
 
+    // Start is called before the first frame update
+    void Start()
+    {
 
-    // SHould really make a new class for all this!
-    
-    // Sample with a sine wave
-    // public static float SampleCell0(float x, float y)
+    }
+
+    private void Update()
+    {
+        // UpdateMesh();
+    }
+
+    // private void OnDrawGizmos()
     // {
+    //     if(vertices == null)
+    //     {
+    //         return; 
+    //     }
 
-    //     return Mathf.Sin(Utilities.Map(x, 0, 100, 0, Mathf.PI))
-    //     * Mathf.Sin(Utilities.Map(y, 0, 100, 0, Mathf.PI)) * 40;
+    //     for (int i = 0; i < vertices.Length; i++)
+    //     {
+    //         Gizmos.DrawSphere(vertices[i], .1f);
+    //     }
     // }
-
-    // Additive perlin noise
-    public static float SampleCell1(float x, float y)
-    {
-        return (
-         Mathf.PerlinNoise(10000 + x / 100, 10000 + y / 100) * 100)
-         + (Mathf.PerlinNoise(10000 + x / 1000, 10000 + y / 1000) * 300)
-         + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
-    }
-
-    // Mountains and valleys
-    public static float SampleCell2(float x, float y)
-    {
-        float flatness = 0.2f;
-        float noise = Mathf.PerlinNoise(10000 + x / 100, 10000 + y / 100);
-        if (noise > 0.5f + flatness)
-        {
-            noise = noise - flatness;
-        }
-        else if (noise < 0.5f - flatness)
-        {
-            noise = noise + flatness;
-        }
-        else
-        {
-            noise = 0.5f;
-        }
-        return (noise * 300);
-    }
-
-    // Mountains and valleys & bumps
-    public static float SampleCell3(float x, float y)
-    {
-        float flatness = 0.2f;
-        float noise = Mathf.PerlinNoise(10000 + x / 100, 10000 + y / 100);
-        if (noise > 0.5f + flatness)
-        {
-            noise = noise - flatness;
-        }
-        else if (noise < 0.5f - flatness)
-        {
-            noise = noise + flatness;
-        }
-        else
-        {
-            noise = 0.5f;
-        }
-        
-        return (noise * 300) + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
-    }
-
-    public static float SampleCell4(float x, float y)
-    {
-        float flatness = 0.2f;
-        float noise = Mathf.PerlinNoise(10000 + x , 10000 + y );
-        if (noise > 0.5f + flatness)
-        {
-            noise = noise - flatness;
-        }
-        else if (noise < 0.5f - flatness)
-        {
-            noise = noise + flatness;
-        }
-        else
-        {
-            noise = 0.5f;
-        }
-        
-        return (noise * 300) + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
-    }
-    float t = 0;
-	// Update is called once per frame   
-    
-    /*        
-	void Update () {
-        Vector3[] vertices = m.vertices;
-        for (int i = 0; i < vertices.Length; i++)
-        {
-            vertices[i].y = SampleCell(transform.position.x + vertices[i].x, transform.position.z + vertices[i].z + t);
-        }
-        m.vertices = vertices;
-        //t += Time.deltaTime;
-        m.RecalculateNormals();
-	}
-    */
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveFoward : MonoBehaviour {
 
-    public float maintainHeight = 1;
+    public float maintainHeight = 0;
     public float speed = 10;
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class MoveFoward : MonoBehaviour {
             // First do the physics
             Vector3 targetPos = transform.position;
             targetPos += (Vector3.forward * speed * Time.deltaTime);
-            targetPos.y = Mathf.Lerp(targetPos.y, rch.point.y + maintainHeight, Time.deltaTime * 2);
+            // targetPos.y = Mathf.Lerp(targetPos.y, rch.point.y + maintainHeight, Time.deltaTime * 2);
             transform.position = targetPos;
         }
 	}

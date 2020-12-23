@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfiniteTerrain : MonoBehaviour {
+public class RailRouteGenerator : MonoBehaviour {
     public GameObject tilePrefab;
-    public Transform player;
+    public Transform train;
     public int quadsPerTile;
 
-    public int halfTile = 5;
+    public int halfTile = 10;
 
     Dictionary<string, Tile> tiles = new Dictionary<string, Tile>();
     Queue<GameObject> oldGameObjects = new Queue<GameObject>();
@@ -17,15 +17,15 @@ public class InfiniteTerrain : MonoBehaviour {
     void Start()
     {
 
-        TerrainTile tt = tilePrefab.GetComponent<TerrainTile>();
+        RailMesh tt = tilePrefab.GetComponent<RailMesh>();
         if (tt != null)
         {
             quadsPerTile = tt.quadsPerTile;
         }
         
-        if (player == null)
+        if (train == null)
         {
-            player = Camera.main.transform;
+            train = Camera.main.transform;
         }
 
         StartCoroutine(GenerateWorldAroundPlayer());
@@ -59,32 +59,31 @@ public class InfiniteTerrain : MonoBehaviour {
 
                 //force integer position and round to nearest tilesize
                 // Find which tile the player is on
-                int playerX = (int)(Mathf.Floor((player.transform.position.x) / (quadsPerTile)) * quadsPerTile);
-                int playerZ = (int)(Mathf.Floor((player.transform.position.z) / (quadsPerTile)) * quadsPerTile);
+                int playerX = (int)(Mathf.Floor((train.transform.position.x) / (quadsPerTile)) * quadsPerTile);
+                int playerZ = (int)(Mathf.Floor((train.transform.position.z) / (quadsPerTile)) * quadsPerTile);
 
                 List<Vector3> newTiles = new List<Vector3>();
-                for (int x = -halfTile; x < halfTile; x++)
-                {
-                    for (int z = -halfTile; z < halfTile; z++)
-                    {
-                        // The position of the new tile
-                        Vector3 pos = new Vector3((x * quadsPerTile + playerX),
-                            0,
-                            (z * quadsPerTile + playerZ));
 
-                        string tilename = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString();
-                        if (!tiles.ContainsKey(tilename))
-                        {
-                            newTiles.Add(pos);
-                        }
-                        else
-                        {
-                            (tiles[tilename] as Tile).creationTime = updateTime;
-                        }
+                for (int z = -halfTile; z < halfTile; z++)
+                {
+                    // The position of the new tile
+                    Vector3 pos = new Vector3((playerX),
+                        0,
+                        (z * quadsPerTile + playerZ));
+
+                    string tilename = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString();
+                    if (!tiles.ContainsKey(tilename))
+                    {
+                        newTiles.Add(pos);
+                    }
+                    else
+                    {
+                        (tiles[tilename] as Tile).creationTime = updateTime;
                     }
                 }
+
                 // Sort in order of distance from the player
-                newTiles.Sort((a, b) => (int)Vector3.SqrMagnitude(player.transform.position - a) - (int)Vector3.SqrMagnitude(player.transform.position - b));
+                newTiles.Sort((a, b) => (int)Vector3.SqrMagnitude(train.transform.position - a) - (int)Vector3.SqrMagnitude(train.transform.position - b));
                 foreach (Vector3 pos in newTiles)
                 {
                     GameObject t = GameObject.Instantiate<GameObject>(tilePrefab, pos, Quaternion.identity);
@@ -112,12 +111,12 @@ public class InfiniteTerrain : MonoBehaviour {
                 }
                 //copy new hashtable contents to the working hashtable
                 tiles = newTerrain;
-                startPos = player.transform.position;
+                startPos = train.transform.position;
             }
             yield return null;
             //determine how far the player has moved since last terrain update
-            xMove = (int)(player.transform.position.x - startPos.x);
-            zMove = (int)(player.transform.position.z - startPos.z);
+            xMove = (int)(train.transform.position.x - startPos.x);
+            zMove = (int)(train.transform.position.z - startPos.z);
         }
     }
 
@@ -135,6 +134,5 @@ public class InfiniteTerrain : MonoBehaviour {
             creationTime = ct;
         }
     }
-
 
 }

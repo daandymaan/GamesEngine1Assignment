@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4565814120438034}
-  - component: {fileID: 4314564908645830447}
+  - component: {fileID: 4370589358344998544}
   m_Layer: 0
-  m_Name: terrainTile
+  m_Name: cheese
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4314564908645830447
+--- !u!114 &4370589358344998544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,6 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quadsPerTile: 10
-  meshMaterial: {fileID: 2100000, guid: 4c87d3c73c934ec418347d8510d2379d, type: 2}
+  meshMaterial: {fileID: 2100000, guid: beea4364b28e92e4680972cc220b3cb2, type: 2}
   amplitude: 50
-  whichSampler: 1

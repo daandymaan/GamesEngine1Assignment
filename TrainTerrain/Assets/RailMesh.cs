@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RailroadMesh : MonoBehaviour {
-
+public class RailMesh : MonoBehaviour
+{
+    
     public int quadsPerTile = 10;
 
     public Material meshMaterial;
