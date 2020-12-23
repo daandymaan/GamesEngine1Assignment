@@ -39,6 +39,8 @@ Transform:
   - {fileID: 1184285139691732201}
   - {fileID: 912810135287919489}
   - {fileID: 8045901982077778930}
+  - {fileID: 355537091805571714}
+  - {fileID: 6998106334481280008}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -208,7 +210,7 @@ GameObject:
   - component: {fileID: 1184285139691732203}
   - component: {fileID: 1184285139691732202}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: barrelOfTrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +304,7 @@ GameObject:
   - component: {fileID: 1184285140042232612}
   - component: {fileID: 1184285140042232611}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: chimney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,7 +398,7 @@ GameObject:
   - component: {fileID: 823624949062945345}
   - component: {fileID: 8470898801405749428}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: frontRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,6 +478,36 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3176060383672082205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6998106334481280008}
+  m_Layer: 0
+  m_Name: sideCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6998106334481280008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3176060383672082205}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.371, y: 1.803, z: -2.297}
+  m_LocalScale: {x: 0.2628059, y: 0.5908217, z: 0.387751}
+  m_Children: []
+  m_Father: {fileID: 1184285139171486278}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4130918322391839994
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +521,7 @@ GameObject:
   - component: {fileID: 209955995620204703}
   - component: {fileID: 1980924842214217746}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: backRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -569,6 +601,36 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4835567196953944475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 355537091805571714}
+  m_Layer: 0
+  m_Name: fowardCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &355537091805571714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4835567196953944475}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.637, y: 4.88, z: -0.068}
+  m_LocalScale: {x: 0.2628059, y: 0.5908217, z: 0.387751}
+  m_Children: []
+  m_Father: {fileID: 1184285139171486278}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5117918299677723892
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +644,7 @@ GameObject:
   - component: {fileID: 931957004002662719}
   - component: {fileID: 609146205179806248}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: wheelHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,7 +737,7 @@ GameObject:
   - component: {fileID: 6235251781757356894}
   - component: {fileID: 6735786624838893774}
   m_Layer: 0
-  m_Name: Sphere (2)
+  m_Name: backLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -768,7 +830,7 @@ GameObject:
   - component: {fileID: 5281456034154604385}
   - component: {fileID: 1951192969463991355}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: componentsHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,7 +923,7 @@ GameObject:
   - component: {fileID: 4149246007613947241}
   - component: {fileID: 3472168068706636285}
   m_Layer: 0
-  m_Name: Sphere (3)
+  m_Name: frontLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

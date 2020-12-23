@@ -100,78 +100,12 @@ public class RailroadMesh : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        // mesh = new Mesh();
-        // GetComponent<MeshFilter>().mesh = mesh;
-        // mr = gameObject.AddComponent<MeshRenderer>(); // Draw
-        // mc = gameObject.AddComponent<MeshCollider>();
 
-        // StartCoroutine(CreateShape());
     }
 
     private void Update()
     {
         // UpdateMesh();
-    }
-
-    // IEnumerator CreateShape()
-    // {
-    //     vertices = new Vector3[(xSize + 1) * (zSize + 1)];
-    //     for (int i = 0 , z = 0; z <= zSize; z++)
-    //     {
-    //         for (int x = 0; x <= xSize; x++)
-    //         {
-    //             vertices[i] = new Vector3(x, 0, z);
-    //             i++;
-    //         }
-    //     }
-
-    //     int tris = 0;
-    //     int vert = 0;
-    //     triangles = new int[xSize * zSize * 6];
-    //     for (int z = 0; z < zSize; z++)
-    //     {
-    //         for (int x = 0; x < xSize; x++)
-    //         {
-    //             triangles[tris + 0] = vert + 0;
-    //             triangles[tris + 1] = vert + xSize + 1;
-    //             triangles[tris + 2] = vert + 1;
-    //             triangles[tris + 3] = vert + 1;
-    //             triangles[tris + 4] = vert + xSize + 1;
-    //             triangles[tris + 5] = vert + xSize + 2;
-
-    //             vert++;
-    //             tris += 6;
-
-    //             yield return new WaitForSeconds(.1f);
-    //         }
-    //         vert++;
-    //     }
-
-    //     uv = new Vector2[(xSize + 1) * (zSize + 1)];
-    //     int index = 0;
-    //     for (int z = 0; z < zSize; z++)
-    //     {
-    //         for (int x = 0; x < xSize; x++)
-    //         {
-    //             uv[index++] = new Vector2(x / xSize, z / zSize);
-    //             uv[index++] = new Vector2(x / xSize, (z + 1) / zSize);
-    //             uv[index++] = new Vector2((x + 1) / xSize, (z + 1) / zSize);
-    //             uv[index++] = new Vector2((x + 1) / xSize, z / zSize);
-    //         }
-    //     }
-    // }
-
-    void UpdateMesh()
-    {
-        // mesh.Clear();
-        // mesh.vertices = vertices;
-        // mesh.triangles = triangles; 
-        // mesh.uv = uv;
-        // mesh.RecalculateNormals();
-        // mr.material = meshMaterial;
-        // mc.sharedMesh = mesh;
-        // mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-        // mr.receiveShadows = true;
     }
 
     // private void OnDrawGizmos()
