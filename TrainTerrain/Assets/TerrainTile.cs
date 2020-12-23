@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RailroadMesh : MonoBehaviour {
+public class TerrainTile : MonoBehaviour {
 
     public int quadsPerTile = 10;
 
@@ -12,16 +12,16 @@ public class RailroadMesh : MonoBehaviour {
 
     Mesh m;
 
-    // private delegate float SampleCell(float x, float y);
+    private delegate float SampleCell(float x, float y);
 
-    // SampleCell[] sampleCell = {
-    //            new SampleCell(SampleCell1)
-    //           , new SampleCell(SampleCell2)
-    //           , new SampleCell(SampleCell3)
-    //           , new SampleCell(SampleCell4)
-    // };
+    SampleCell[] sampleCell = {
+               new SampleCell(SampleCell1)
+              , new SampleCell(SampleCell2)
+              , new SampleCell(SampleCell3)
+              , new SampleCell(SampleCell4)
+    };
 
-    // public int whichSampler = 0;
+    public int whichSampler = 0;
 
     // Use this for initialization
     void Awake() {
@@ -97,94 +97,99 @@ public class RailroadMesh : MonoBehaviour {
         mr.receiveShadows = true;
 	}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // mesh = new Mesh();
-        // GetComponent<MeshFilter>().mesh = mesh;
-        // mr = gameObject.AddComponent<MeshRenderer>(); // Draw
-        // mc = gameObject.AddComponent<MeshCollider>();
 
-        // StartCoroutine(CreateShape());
-    }
-
-    private void Update()
-    {
-        // UpdateMesh();
-    }
-
-    // IEnumerator CreateShape()
+    // SHould really make a new class for all this!
+    
+    // Sample with a sine wave
+    // public static float SampleCell0(float x, float y)
     // {
-    //     vertices = new Vector3[(xSize + 1) * (zSize + 1)];
-    //     for (int i = 0 , z = 0; z <= zSize; z++)
-    //     {
-    //         for (int x = 0; x <= xSize; x++)
-    //         {
-    //             vertices[i] = new Vector3(x, 0, z);
-    //             i++;
-    //         }
-    //     }
 
-    //     int tris = 0;
-    //     int vert = 0;
-    //     triangles = new int[xSize * zSize * 6];
-    //     for (int z = 0; z < zSize; z++)
-    //     {
-    //         for (int x = 0; x < xSize; x++)
-    //         {
-    //             triangles[tris + 0] = vert + 0;
-    //             triangles[tris + 1] = vert + xSize + 1;
-    //             triangles[tris + 2] = vert + 1;
-    //             triangles[tris + 3] = vert + 1;
-    //             triangles[tris + 4] = vert + xSize + 1;
-    //             triangles[tris + 5] = vert + xSize + 2;
-
-    //             vert++;
-    //             tris += 6;
-
-    //             yield return new WaitForSeconds(.1f);
-    //         }
-    //         vert++;
-    //     }
-
-    //     uv = new Vector2[(xSize + 1) * (zSize + 1)];
-    //     int index = 0;
-    //     for (int z = 0; z < zSize; z++)
-    //     {
-    //         for (int x = 0; x < xSize; x++)
-    //         {
-    //             uv[index++] = new Vector2(x / xSize, z / zSize);
-    //             uv[index++] = new Vector2(x / xSize, (z + 1) / zSize);
-    //             uv[index++] = new Vector2((x + 1) / xSize, (z + 1) / zSize);
-    //             uv[index++] = new Vector2((x + 1) / xSize, z / zSize);
-    //         }
-    //     }
+    //     return Mathf.Sin(Utilities.Map(x, 0, 100, 0, Mathf.PI))
+    //     * Mathf.Sin(Utilities.Map(y, 0, 100, 0, Mathf.PI)) * 40;
     // }
 
-    void UpdateMesh()
+    // Additive perlin noise
+    public static float SampleCell1(float x, float y)
     {
-        // mesh.Clear();
-        // mesh.vertices = vertices;
-        // mesh.triangles = triangles; 
-        // mesh.uv = uv;
-        // mesh.RecalculateNormals();
-        // mr.material = meshMaterial;
-        // mc.sharedMesh = mesh;
-        // mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-        // mr.receiveShadows = true;
+        return (
+         Mathf.PerlinNoise(10000 + x / 100, 10000 + y / 100) * 100)
+         + (Mathf.PerlinNoise(10000 + x / 1000, 10000 + y / 1000) * 300)
+         + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
     }
 
-    // private void OnDrawGizmos()
-    // {
-    //     if(vertices == null)
-    //     {
-    //         return; 
-    //     }
+    // Mountains and valleys
+    public static float SampleCell2(float x, float y)
+    {
+        float flatness = 0.2f;
+        float noise = Mathf.PerlinNoise(10000 + x / 100, 10000 + y / 100);
+        if (noise > 0.5f + flatness)
+        {
+            noise = noise - flatness;
+        }
+        else if (noise < 0.5f - flatness)
+        {
+            noise = noise + flatness;
+        }
+        else
+        {
+            noise = 0.5f;
+        }
+        return (noise * 300);
+    }
 
-    //     for (int i = 0; i < vertices.Length; i++)
-    //     {
-    //         Gizmos.DrawSphere(vertices[i], .1f);
-    //     }
-    // }
+    // Mountains and valleys & bumps
+    public static float SampleCell3(float x, float y)
+    {
+        float flatness = 0.2f;
+        float noise = Mathf.PerlinNoise(10000 + x / 100, 10000 + y / 100);
+        if (noise > 0.5f + flatness)
+        {
+            noise = noise - flatness;
+        }
+        else if (noise < 0.5f - flatness)
+        {
+            noise = noise + flatness;
+        }
+        else
+        {
+            noise = 0.5f;
+        }
+        
+        return (noise * 300) + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
+    }
 
+    public static float SampleCell4(float x, float y)
+    {
+        float flatness = 0.2f;
+        float noise = Mathf.PerlinNoise(10000 + x , 10000 + y );
+        if (noise > 0.5f + flatness)
+        {
+            noise = noise - flatness;
+        }
+        else if (noise < 0.5f - flatness)
+        {
+            noise = noise + flatness;
+        }
+        else
+        {
+            noise = 0.5f;
+        }
+        
+        return (noise * 300) + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
+    }
+    float t = 0;
+	// Update is called once per frame   
+    
+    /*        
+	void Update () {
+        Vector3[] vertices = m.vertices;
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i].y = SampleCell(transform.position.x + vertices[i].x, transform.position.z + vertices[i].z + t);
+        }
+        m.vertices = vertices;
+        //t += Time.deltaTime;
+        m.RecalculateNormals();
+	}
+    */
 }
