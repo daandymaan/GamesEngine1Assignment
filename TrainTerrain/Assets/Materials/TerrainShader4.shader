@@ -45,13 +45,13 @@
 			{
 				o.Albedo = fixed3(0.5, 0.5, 0.5);
 			}
-			else if (IN.worldPos.y > -1)
+			else if (IN.worldPos.y > -1.5)
 			{
-				o.Albedo = fixed3(0, 0.4, 0);
+				o.Albedo = fixed3(0.28, 0.39, 0.106);
 			}
 			else 
 			{
-				o.Albedo = fixed3(0, 0, 0.8);
+				o.Albedo = fixed3(0.2, 0.45, 0.55);
 			}
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;
