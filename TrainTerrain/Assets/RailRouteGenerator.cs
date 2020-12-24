@@ -7,7 +7,7 @@ public class RailRouteGenerator : MonoBehaviour {
     public Transform train;
     public int quadsPerTile;
 
-    public int halfTile = 10;
+    public int halfTile = 20;
 
     Dictionary<string, Tile> tiles = new Dictionary<string, Tile>();
     Queue<GameObject> oldGameObjects = new Queue<GameObject>();

@@ -69,10 +69,10 @@ public class TerrainGenerator : MonoBehaviour
                 for (int z = -halfTile; z < halfTile; z++)
                 {
                     // The position of the new tile
-                    Vector3 pos1 = new Vector3((playerX + 50),
+                    Vector3 pos1 = new Vector3((playerX + 120),
                         -0.01f,
                         (z * quadsPerTile + playerZ));
-                    Vector3 pos2 = new Vector3((playerX - 10),
+                    Vector3 pos2 = new Vector3((playerX + 20),
                         -0.01f,
                         (z * quadsPerTile + playerZ));
 
