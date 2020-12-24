@@ -6,8 +6,8 @@ public class TrainController : MonoBehaviour
 {
     public float speed = 10;
     bool startTrain = false;
-
     public ParticleSystem chimney;
+    public AudioSource trainChime;
 
     void Start()
     {
@@ -40,6 +40,12 @@ public class TrainController : MonoBehaviour
 
     public IEnumerator SmokeControl()
     {
+        speed += 20;
+        if(!trainChime.isPlaying)
+        {
+            Debug.Log("In here");
+            trainChime.Play();
+        }
         SmokeRelease();
         yield return new WaitForSeconds(1f);
         SmokeStop();
@@ -47,6 +53,7 @@ public class TrainController : MonoBehaviour
         SmokeRelease();
         yield return new WaitForSeconds(1f);
         SmokeStop();
+        speed -= 20;
     }
 
     void SmokeRelease()
