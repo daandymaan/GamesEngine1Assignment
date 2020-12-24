@@ -28,6 +28,19 @@ public class TrainController : MonoBehaviour
             trainTrack.loop = true;
         }
 
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            var emission = chimney.emission;
+            if(emission.enabled==true)
+            {
+                SmokeStop();
+            }
+            else
+            {
+                SmokeRelease();
+            }
+        }
+
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             StartCoroutine(SmokeControl());
@@ -40,7 +53,10 @@ public class TrainController : MonoBehaviour
             transform.position = targetPos;
         }
 
-        
+        GameManager.Log("Press w to start the train");
+        GameManager.Log("Press 'shift' to enable boost");
+        GameManager.Log("Press s to enable or disable smoke");
+        GameManager.Log("Current Speed :" + speed);
     }
 
     void playAudio()

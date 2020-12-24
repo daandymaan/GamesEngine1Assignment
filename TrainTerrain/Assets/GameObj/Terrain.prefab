@@ -46,3 +46,7 @@ MonoBehaviour:
   quadsPerTile: 100
   meshMaterial: {fileID: 2100000, guid: 12d074047624129489aff01841772b3c, type: 2}
   amplitude: 50
+  firTree: {fileID: 192044, guid: 19682540d8a014522a319b1cf788aee2, type: 3}
+  oakTree: {fileID: 191266, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 3}
+  popTree: {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
+  terrainOption: 0

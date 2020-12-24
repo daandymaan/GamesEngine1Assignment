@@ -13,18 +13,6 @@ public class RailMesh : MonoBehaviour
 
     Mesh m;
 
-    // private delegate float SampleCell(float x, float y);
-
-    // SampleCell[] sampleCell = {
-    //            new SampleCell(SampleCell1)
-    //           , new SampleCell(SampleCell2)
-    //           , new SampleCell(SampleCell3)
-    //           , new SampleCell(SampleCell4)
-    // };
-
-    // public int whichSampler = 0;
-
-    // Use this for initialization
     void Awake() {
         MeshFilter mf = gameObject.AddComponent<MeshFilter>(); // Container for the mesh
         MeshRenderer mr = gameObject.AddComponent<MeshRenderer>(); // Draw
@@ -47,10 +35,6 @@ public class RailMesh : MonoBehaviour
         {
             for (int col = 0; col < quadsPerTile; col++)
             {
-                // Vector3 bl = bottomLeft + new Vector3(col, sampleCell[whichSampler](transform.position.x + col, transform.position.z + row), row);
-                // Vector3 tl = bottomLeft + new Vector3(col, sampleCell[whichSampler](transform.position.x + col, transform.position.z + row + 1), row + 1);
-                // Vector3 tr = bottomLeft + new Vector3(col + 1, sampleCell[whichSampler](transform.position.x + col + 1, transform.position.z + row + 1), row + 1);
-                // Vector3 br = bottomLeft + new Vector3(col + 1, sampleCell[whichSampler](transform.position.x + col + 1, transform.position.z + row), row);
                 Vector3 bl = bottomLeft + new Vector3(col, 0, row);
                 Vector3 tl = bottomLeft + new Vector3(col, 0, row + 1);
                 Vector3 tr = bottomLeft + new Vector3(col + 1, 0, row + 1);
@@ -108,18 +92,5 @@ public class RailMesh : MonoBehaviour
     {
         // UpdateMesh();
     }
-
-    // private void OnDrawGizmos()
-    // {
-    //     if(vertices == null)
-    //     {
-    //         return; 
-    //     }
-
-    //     for (int i = 0; i < vertices.Length; i++)
-    //     {
-    //         Gizmos.DrawSphere(vertices[i], .1f);
-    //     }
-    // }
 
 }

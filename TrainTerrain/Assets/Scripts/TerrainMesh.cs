@@ -9,13 +9,6 @@ public class TerrainMesh : MonoBehaviour
     public Material meshMaterial;
 
     public float amplitude = 50;
-
-    public GameObject firTree;
-
-    public GameObject oakTree;
-
-    public GameObject popTree;
-
     public int terrainOption;
 
     Mesh m;
@@ -148,6 +141,7 @@ public class TerrainMesh : MonoBehaviour
         
         return (noise * 300) + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
     }
+
     void Start()
     {
 
