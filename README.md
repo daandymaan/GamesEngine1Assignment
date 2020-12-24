@@ -1,11 +1,53 @@
 # GamesEngine1Assignment
-This project is for the Games engine 1 assignment where I will create and audio visualizer using a train traversing nature.
+This project is for the Games engine 1 assignment where I will create a train traversing nature.
 
 # Details 
 Name: Daniel Simons                    
 Course: DT228                           
 Student-number: C17371946
 
+
+# Assignment 
+This assignment took a different course to what was orignially planned due to time constraints. 
+This assignment presents a procedurely generated world using Perlin noise and a train that traverses it.
+The railroad the mountains the lakes and the bumps are all procedurally generated. 
+
+## Information about functionality
+The train has also some functionality.
+Button | Function 
+-------|---------
+w      | Allows the train to start moving down the track and also starts the train noise
+s      | Smoke/Steam can be enabled or disabled
+shift  | Boosts the train down the track increasing its speed by 300%
+
+There is also the quit button to exit out of the program safely 
+These instructions appear on the screen in the GUI box 
+
+### Terrain generation 
+#### Railroad generation
+#### Mountain + hill generation
+
+## Parts from course + Innovative parts
+The terrain generation comes mainly through this course, I found this quite useful, I didnt have quite enough time to generate trees in the environment but that was something I was looking into towards the end. 
+The smoke generation and the model for the train I created myself, I created the script for the train controller myself also which allows different functionality to occur. 
+I altered the shader file made in this course to better suit the environment and I couldn't find a way to create different textures *not colours* for different terrains using a shader file which I spent a little too much time doing. 
+
+## Notewothy 
+I struggled with a lot of the terrain generation, which I found quite difficult, but once I got it establish it was quite cool to explore and mess around with the different values. 
+I am quite proud of the smoke generation from the chimney of the train and how I incorporated trains sounds to go with it. 
+Overall I wish I had more time but fourth year really doesnt give you much :( .
+
+
+## Instructions to build
+There is an .exe file you can run to demostrate the key functions of this simulation. 
+*TrainTerrain.exe* 
+
+## Embedded video of assignment 
+[![YouTube](http://img.youtube.com/vi/t2vKYxqbJf0/0.jpg)](https://www.youtube.com/watch?v=t2vKYxqbJf0)
+
+
+PROPOSAL SUBMISSION
+-------------------
 # Introduction
 This proposal will detail my idea for the games engine 1 assignment. My proposal is to create a procedurally generated railroad in which the setting and railroad alter and transform with synchronized music. The railroad generation and the world that is generated for the train to travel through will be dependent on the different characteristics found in music. Some of these characteristics include; rhythm, the element of time within music and the speed of the beat, dynamics of music such as the loudness or quietness of music (Crescendo and descrescendo), melody,  which is the presentation of pitch or in other words the highness or the lowness of a note or sound and finally harmony the combination of pitches to create chords. 
 
