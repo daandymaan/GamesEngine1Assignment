@@ -65,31 +65,34 @@ public class MtnGenerator : MonoBehaviour
                 int playerZ = (int)(Mathf.Floor((train.transform.position.z) / (quadsPerTile)) * quadsPerTile);
 
                 List<Vector3> newTiles = new List<Vector3>();
-
-                for (int z = -halfTile; z < halfTile; z++)
+                for(int x = 1; x < halfTile; x++)
                 {
-                    // The position of the new tile
-                    Vector3 pos1 = new Vector3((playerX + 220),
-                        -150,
-                        (z * quadsPerTile + playerZ));
-                    Vector3 pos2 = new Vector3((playerX - 50),
-                        -150,
-                        (z * quadsPerTile + playerZ));
-
-                    string tilename1 = "Tile_" + ((int)(pos1.x)).ToString() + "_" + ((int)(pos1.z)).ToString();
-                    string tilename2 = "Tile_" + ((int)(pos2.x)).ToString() + "_" + ((int)(pos2.z)).ToString();
-                    if (!tiles.ContainsKey(tilename1) || !tiles.ContainsKey(tilename2))
+                    for (int z = -halfTile; z < halfTile; z++)
                     {
-                        newTiles.Add(pos1);
-                        newTiles.Add(pos2);
-                    }
-                    else
-                    {
-                        (tiles[tilename1] as Tile).creationTime = updateTime;
-                        (tiles[tilename2] as Tile).creationTime = updateTime;
+                        // The position of the new tile
+                        Vector3 pos1 = new Vector3((x * quadsPerTile + playerX),
+                            -152,
+                            (z * quadsPerTile + playerZ));
+                        Vector3 pos2 = new Vector3((-x * quadsPerTile - playerX),
+                            -152,
+                            (z * quadsPerTile + playerZ));
 
+                        string tilename1 = "Tile1_" + ((int)(pos1.x)).ToString() + "_" + ((int)(pos1.z)).ToString();
+                        string tilename2 = "Tile2_" + ((int)(pos2.x)).ToString() + "_" + ((int)(pos2.z)).ToString();
+                        if (!tiles.ContainsKey(tilename1) || !tiles.ContainsKey(tilename2))
+                        {
+                            newTiles.Add(pos1);
+                            newTiles.Add(pos2);
+                        }
+                        else
+                        {
+                            (tiles[tilename1] as Tile).creationTime = updateTime;
+                            (tiles[tilename2] as Tile).creationTime = updateTime;
+
+                        }
                     }
                 }
+                    
 
                 // Sort in order of distance from the player
                 newTiles.Sort((a, b) => (int)Vector3.SqrMagnitude(train.transform.position - a) - (int)Vector3.SqrMagnitude(train.transform.position - b));
@@ -97,7 +100,7 @@ public class MtnGenerator : MonoBehaviour
                 {
                     GameObject t = GameObject.Instantiate<GameObject>(tilePrefab, pos, Quaternion.identity);
                     t.transform.parent = this.transform;
-                    string tilename = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString();
+                    string tilename = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString() + "_" + ((int)(pos.y)).ToString();
                     t.name = tilename;
                     Tile tile = new Tile(t, updateTime);
                     tiles[tilename] = tile;

@@ -83,8 +83,8 @@ public class TerrainMtn : MonoBehaviour
 
     public static float generateMtn(float x, float y)
     {
-        float flatness = 0.15f;
-        float noise = Mathf.PerlinNoise(100 + x / 25, 100 + y / 100);
+        float flatness = 0.2f;
+        float noise = Mathf.PerlinNoise(10000 + x / 500, 10000 + y / 350);
         if (noise > 0.5f + flatness)
         {
             noise = noise - flatness;
@@ -97,7 +97,8 @@ public class TerrainMtn : MonoBehaviour
         {
             noise = 0.5f;
         }
-        return (noise * 300);
+        
+        return (noise * 300) + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
     }
 
     void Start()
