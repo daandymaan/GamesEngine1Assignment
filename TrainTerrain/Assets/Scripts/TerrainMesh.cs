@@ -12,18 +12,6 @@ public class TerrainMesh : MonoBehaviour
 
     Mesh m;
 
-    // private delegate float SampleCell(float x, float y);
-
-    // SampleCell[] sampleCell = {
-    //            new SampleCell(SampleCell1)
-    //           , new SampleCell(SampleCell2)
-    //           , new SampleCell(SampleCell3)
-    //           , new SampleCell(SampleCell4)
-    // };
-
-    // public int whichSampler = 0;
-
-    // Use this for initialization
     void Awake() {
         MeshFilter mf = gameObject.AddComponent<MeshFilter>(); // Container for the mesh
         MeshRenderer mr = gameObject.AddComponent<MeshRenderer>(); // Draw
@@ -46,14 +34,10 @@ public class TerrainMesh : MonoBehaviour
         {
             for (int col = 0; col < quadsPerTile; col++)
             {
-                // Vector3 bl = bottomLeft + new Vector3(col, sampleCell[whichSampler](transform.position.x + col, transform.position.z + row), row);
-                // Vector3 tl = bottomLeft + new Vector3(col, sampleCell[whichSampler](transform.position.x + col, transform.position.z + row + 1), row + 1);
-                // Vector3 tr = bottomLeft + new Vector3(col + 1, sampleCell[whichSampler](transform.position.x + col + 1, transform.position.z + row + 1), row + 1);
-                // Vector3 br = bottomLeft + new Vector3(col + 1, sampleCell[whichSampler](transform.position.x + col + 1, transform.position.z + row), row);
-                Vector3 bl = bottomLeft + new Vector3(col, 0, row);
-                Vector3 tl = bottomLeft + new Vector3(col, 0, row + 1);
-                Vector3 tr = bottomLeft + new Vector3(col + 1, 0, row + 1);
-                Vector3 br = bottomLeft + new Vector3(col + 1, 0, row);
+                Vector3 bl = bottomLeft + new Vector3(col, generateBmps(transform.position.x + col, transform.position.z + row), row);
+                Vector3 tl = bottomLeft + new Vector3(col, generateBmps(transform.position.x + col, transform.position.z + row + 1), row + 1);
+                Vector3 tr = bottomLeft + new Vector3(col + 1, generateBmps(transform.position.x + col + 1, transform.position.z + row + 1), row + 1);
+                Vector3 br = bottomLeft + new Vector3(col + 1, generateBmps(transform.position.x + col + 1, transform.position.z + row), row);
 
                 
                 int startVertex = vertex;
@@ -97,7 +81,25 @@ public class TerrainMesh : MonoBehaviour
         mr.receiveShadows = true;
 	}
 
-    // Start is called before the first frame update
+    public static float generateBmps(float x, float y)
+    {
+        float flatness = 0.2f;
+        float noise = Mathf.PerlinNoise(10000 + x , 10000 + y );
+        if (noise > 0.5f + flatness)
+        {
+            noise = noise - flatness;
+        }
+        else if (noise < 0.5f - flatness)
+        {
+            noise = noise + flatness;
+        }
+        else
+        {
+            noise = 0.5f;
+        }
+        
+        return (noise * 300) + (Mathf.PerlinNoise(1000 + x / 5, 100 + y / 5) * 2);
+    }
     void Start()
     {
 

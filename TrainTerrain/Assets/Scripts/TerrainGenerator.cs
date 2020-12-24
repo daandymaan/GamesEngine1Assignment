@@ -70,10 +70,10 @@ public class TerrainGenerator : MonoBehaviour
                 {
                     // The position of the new tile
                     Vector3 pos1 = new Vector3((playerX + 120),
-                        -0.01f,
+                        -151.5f,
                         (z * quadsPerTile + playerZ));
                     Vector3 pos2 = new Vector3((playerX + 20),
-                        -0.01f,
+                        -151.5f,
                         (z * quadsPerTile + playerZ));
 
                     string tilename1 = "Tile_" + ((int)(pos1.x)).ToString() + "_" + ((int)(pos1.z)).ToString();
