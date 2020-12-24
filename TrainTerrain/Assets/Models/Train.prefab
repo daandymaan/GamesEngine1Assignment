@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1184285139171486277}
   - component: {fileID: 1184285139171486276}
   - component: {fileID: 1184285139171486275}
-  - component: {fileID: 5198100599300152142}
+  - component: {fileID: 6352619341422651257}
   m_Layer: 0
   m_Name: Train
   m_TagString: Untagged
@@ -105,7 +105,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5198100599300152142
+--- !u!114 &6352619341422651257
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,10 +114,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1184285139171486274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e693169597bc33e4a88fa982a984e6a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d7c1825952c65d4bbdb6585131151eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maintainHeight: 1
   speed: 10
 --- !u!1 &1184285139382465458
 GameObject:
