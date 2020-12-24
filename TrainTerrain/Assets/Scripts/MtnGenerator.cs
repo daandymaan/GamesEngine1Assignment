@@ -19,7 +19,7 @@ public class MtnGenerator : MonoBehaviour
     void Start()
     {
 
-        TerrainMtn tt = tilePrefab.GetComponent<TerrainMtn>();
+        TerrainMesh tt = tilePrefab.GetComponent<TerrainMesh>();
         if (tt != null)
         {
             quadsPerTile = tt.quadsPerTile;
