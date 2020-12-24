@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291729870142109373}
-  - component: {fileID: 291729870142109370}
+  - component: {fileID: 5498964966840580509}
   m_Layer: 0
   m_Name: MtnTerrain
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &291729870142109370
+--- !u!114 &5498964966840580509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +40,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 291729870142109371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc83b770785bc0a4b8d668b91aea1978, type: 3}
+  m_Script: {fileID: 11500000, guid: 895e4f9aebf26eb4eb09104e2891d4f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   quadsPerTile: 100
   meshMaterial: {fileID: 2100000, guid: 76c0231d8dee9fd419b877f720006ee0, type: 2}
   amplitude: 50
+  firTree: {fileID: 0}
+  oakTree: {fileID: 0}
+  popTree: {fileID: 0}
+  terrainOption: 1

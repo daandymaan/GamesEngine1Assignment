@@ -8,19 +8,24 @@ public class TrainController : MonoBehaviour
     bool startTrain = false;
     public ParticleSystem chimney;
     public AudioSource trainChime;
+    public AudioSource trainTrack;
 
     void Start()
     {
         var emission = chimney.emission;
         emission.enabled = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(Input.GetKeyDown(KeyCode.W))
         {
-            startTrain = true;
+            playAudio();
+            startTrain = true;  
+            trainTrack.loop = true;
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
@@ -38,12 +43,16 @@ public class TrainController : MonoBehaviour
         
     }
 
+    void playAudio()
+    {
+        trainTrack.Play();
+    }
+
     public IEnumerator SmokeControl()
     {
         speed += 20;
         if(!trainChime.isPlaying)
         {
-            Debug.Log("In here");
             trainChime.Play();
         }
         SmokeRelease();
