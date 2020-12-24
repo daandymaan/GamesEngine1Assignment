@@ -7,9 +7,12 @@ public class TrainController : MonoBehaviour
     public float speed = 10;
     bool startTrain = false;
 
+    public ParticleSystem chimney;
+
     void Start()
     {
-
+        var emission = chimney.emission;
+        emission.enabled = false;
     }
 
     // Update is called once per frame
@@ -18,6 +21,11 @@ public class TrainController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.W))
         {
             startTrain = true;
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartCoroutine(SmokeControl());
         }
 
         if(startTrain)
@@ -29,4 +37,28 @@ public class TrainController : MonoBehaviour
 
         
     }
+
+    public IEnumerator SmokeControl()
+    {
+        SmokeRelease();
+        yield return new WaitForSeconds(1f);
+        SmokeStop();
+        yield return new WaitForSeconds(1f);
+        SmokeRelease();
+        yield return new WaitForSeconds(1f);
+        SmokeStop();
+    }
+
+    void SmokeRelease()
+    {
+        var emission = chimney.emission;
+        emission.enabled = true;
+    }
+
+    void SmokeStop()
+    {
+        var emission = chimney.emission;
+        emission.enabled = false;
+    }
 }
+

@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  chimney: {fileID: 7955622838718861407}
 --- !u!1 &1184285139382465458
 GameObject:
   m_ObjectHideFlags: 0
