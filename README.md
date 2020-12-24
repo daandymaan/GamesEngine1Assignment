@@ -70,7 +70,7 @@ There are 3 main components for the terrain generation;
       }
   }
 ```
-  
+![Railroad](Images/RailExample.PNG)
   ### Mountain + hill generation
   The mountain and hilly terrains use the same tile, I had quite a few issues with the heights of these terrains set to over 150 x value higher than the train for some reason so   I included these terrains as the same tile but with different functions called for the different terrains
   ```C#
@@ -241,6 +241,7 @@ There is a few train mechanisms such as boosting the train forward with increase
         }
     } 
   ```
+![Smoke](Images/smokeexample.PNG)
   ### Game manager
   The game manager is a class which allows information to be displayed the screen it also provides the user with a quit button. 
  ```C#
